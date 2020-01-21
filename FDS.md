@@ -6,7 +6,7 @@ Xiangfeng Zhu(zxfeng)
 ### Oversubscription
 Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire 1000s machines together. How would you do it? The following figure shows the dominant design pattern for data-center architecture today(2012). 
 
-![](./clos.png) 
+![><](./clos.png) 
 | *Space* |
 
 
