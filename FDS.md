@@ -7,7 +7,7 @@ Xiangfeng Zhu(zxfeng)
 Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire 1000s machines together. How would you do it? The following figure shows the dominant design pattern for data-center architecture today(2012). 
 
 ![><](./clos.png) 
-| *Space* |
+*image_caption*
 
 
 As shown in the above figure, the network is a tree-like hierarchy reaching from a layer of servers in racks at the bottom to a layer of core routers at the top. Orange rectangles represent switches. Unfortunately, this conventional design suffers from a fundamental limitation: Limited server-to-server capacity(i.e., oversubscription).
