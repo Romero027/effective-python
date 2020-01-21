@@ -19,11 +19,11 @@ As we go up the hierarchy, we are confronted with steep technical and financial 
 The [VL2 paper](http://web.eecs.umich.edu/~mosharaf/Readings/VL2.pdf) provides more detailed explanation. 
 
 #### Disk Locality
-The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although some works(e.g., [Delay Scheduling] (http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) try to solve this issue, location-awareness adds complexity to the scheduler. 
+The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although there are some works(e.g., [Delay Scheduling](http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) attempted to solve this issue, location-awareness adds complexity to the scheduler. 
 
 
 #### CLOS network 
-However, recently developed CLOS networks have made it economical to build non-oversubscribed full bisection bandwidth networks at the scale of a datacenter. 
+However, recently developed [CLOS networks](http://web.eecs.umich.edu/~mosharaf/Readings/VL2.pdf) have made it economical to build non-oversubscribed full bisection bandwidth networks at the scale of a datacenter. 
 The main consequence is that there is no distinction between local disk and remote disk, since the network bandwidth is roughly equal to the network bandwidth. (However, note that memory bandwidth is still two orders of magnitude than the disk and network bandwidth). Thus, we can have much simpler work schedulers and programming models. 
 Another consequence of such design is that high disk-to-disk bandwidth can also facilitate fast recovery from disk and machine failures. 
 
