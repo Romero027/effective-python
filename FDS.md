@@ -19,7 +19,7 @@ As we go up the hierarchy, we are confronted with steep technical and financial 
 The [VL2 paper](http://web.eecs.umich.edu/~mosharaf/Readings/VL2.pdf) provides more detailed explanation. 
 
 #### Disk Locality
-The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although some works(e.g., [Delay Scheduling (http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) try to solve this issue, location-awareness adds complexity to the scheduler. 
+The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although some works(e.g., [Delay Scheduling] (http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) try to solve this issue, location-awareness adds complexity to the scheduler. 
 
 
 #### CLOS network 
