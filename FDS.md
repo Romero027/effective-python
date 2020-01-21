@@ -4,7 +4,9 @@ Xiangfeng Zhu(zxfeng)
 ## Problem and Motivation
 
 #### Oversubscription
-Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire 1000s machines together. How would you do it? The following figure shows the dominant design pattern for data-center architecture today(2012). 
+Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire thousands machines together. How would you do it? 
+
+The following figure shows the dominant design pattern for data-center architecture today(2012). 
 
 <p align="center">
     <img src="./clos.png" alt="image"/>
