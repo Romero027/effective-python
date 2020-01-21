@@ -3,7 +3,7 @@ Xiangfeng Zhu(zxfeng)
 
 ## Problem and Motivation
 
-###Oversubscription
+### Oversubscription
 Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire 1000s machines together. How would you do it? The following figure shows the dominant design pattern for data-center architecture today(2012). 
 
 
@@ -12,11 +12,11 @@ As we go up the hierarchy, we are confronted with steep technical and financial 
 
 This paper provides more detailed explanation. 
 
-###Disk Locality
+### Disk Locality
 The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although some works(e.g., Delay Scheduling) try to solve this issue, location-awareness adds complexity to the scheduler. 
 
 
-###CLOS network 
+### CLOS network 
 However, recently developed CLOS networks have made it economical to build non-oversubscribed full bisection bandwidth networks at the scale of a datacenter. 
 The main consequence is that there is no distinction between local disk and remote disk, since the network bandwidth is roughly equal to the network bandwidth. (However, note that memory bandwidth is still two orders of magnitude than the disk and network bandwidth). Thus, we can have much simpler work schedulers and programming models. 
 Another consequence of such design is that high disk-to-disk bandwidth can also facilitate fast recovery from disk and machine failures. 
