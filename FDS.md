@@ -8,7 +8,7 @@ Switch ports and cabling have both monetary cost and an operational cost in data
 
 <p align="center">
   <img src="./clos.png" alt="image"/>
-  <figcaption>{{ include.description }}</figcaption>
+  <figcaption>Credit: Mosharaf Chowdhury</figcaption>
 </p>
 
 As shown in the above figure, the network is a tree-like hierarchy reaching from a layer of servers in racks at the bottom to a layer of core routers at the top. Orange rectangles represent switches. Unfortunately, this conventional design suffers from a fundamental limitation: **Limited server-to-server capacity(i.e., oversubscription).**
