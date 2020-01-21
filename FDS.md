@@ -28,19 +28,21 @@ Another consequence of such design is that high disk-to-disk bandwidth can also 
 
 In FDS, data is logically stored in **blobs**, which is a byte sequence named with a 128-bit GUID. Reads from and writes to a blob are done in units called **tracts**. Empirically, they found that 8MB makes random and sequential access achieves nearly the same throughput. Every disk is managed by a process called a **tract server** that services read and write requests that arrive over the network from clients. FDS uses a **metadata server** to store the location of tracts.
 
-![](./architecture.png) 
-|:--:| 
-| *Credit: Alex Rasmussen* |
+<p align="center">
+    <img src="./architecture.png" alt="image"/>
+</p>
 
 #### Metadata Management
 
-![](./table.png) 
-|:--:| 
-| *Credit: Alex Rasmussen* |
+<p align="center">
+    <img src="./table.png" alt="image"/>
+</p>
 
 FDS uses a metadata server to store the information about data placement, but it only stores the tract locator table(TLT). Each TLT entry, with k-way replication, contains k tractservers. The client applies the following function to get entries in TLT, called **tract locator**. Once clients find the proper tractserver address in the TLT, they send read and write requests containing the blob GUID, tract number. 
 
-![](./hash.png) 
+<p align="center">
+    <img src="./hash.png" alt="image"/>
+</p>
 
 Different from inode in UNIX, the TLT does not contain complete information about the location of individual tracts in the system.(We will compare TLT against DHT and NameNode in Hadoop later). The metadata about each blob is stored in its special metadata tract("tract - 1"). 
 
@@ -63,3 +65,5 @@ Each TLT entry also has a version number, canonically assigned by the metadata s
 
 Hadoop and GFS both have a centralized master that keeps all metadata in memory. Files and directories are represented on the master/NameNode by inodes, which record attributes like permissions, modification and access times, namespace and disk space quotas. Although such design provides one-hop access to the data and can recover from failure promptly, as the contents of the store grow, the master becomes a centralized scaling and performance bottleneck. 
 In contrast, the tract locator table's size is determined by the number of machines in a cluster, rather than the size of its content.
+
+(Figure 1 credits to Mosharaf Chowdhury and Figure 2,3 credit to Alex Rasmusse)
