@@ -13,12 +13,13 @@ The following figure shows the dominant design pattern for data-center architect
 </p>
 
 As shown in the above figure, the network is a tree-like hierarchy reaching from a layer of servers in racks at the bottom to a layer of core routers at the top. Orange rectangles represent switches. Unfortunately, this conventional design suffers from a fundamental limitation: **Limited server-to-server capacity(i.e., oversubscription).**
+
 As we go up the hierarchy, we are confronted with steep technical and financial barriers in sustaining high bandwidth. Thus, as traffic moves up through the layers of switches and routers, the over-subscription ratio increases rapidly. Top-level switches can be oversubscribed by up to 240x(according to the VL2 paper), meaning that only one in 240 machines can send data across the top level to the other side at a time. 
 
-This paper provides more detailed explanation. 
+The [VL2 paper](http://web.eecs.umich.edu/~mosharaf/Readings/VL2.pdf) provides more detailed explanation. 
 
 #### Disk Locality
-The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although some works(e.g., Delay Scheduling) try to solve this issue, location-awareness adds complexity to the scheduler. 
+The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although some works(e.g., [Delay Scheduling (http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) try to solve this issue, location-awareness adds complexity to the scheduler. 
 
 
 #### CLOS network 
