@@ -10,7 +10,7 @@ Switch ports and cabling have both monetary cost and an operational cost in data
 |:--:| 
 | *Credit: Mosharaf Chowdhury* |
 
-As shown in the above figure, the network is a tree-like hierarchy reaching from a layer of servers in racks at the bottom to a layer of core routers at the top. Orange rectangles represent switches. Unfortunately, this conventional design suffers from a fundamental limitation: Limited server-to-server capacity(i.e., oversubscription).
+As shown in the above figure, the network is a tree-like hierarchy reaching from a layer of servers in racks at the bottom to a layer of core routers at the top. Orange rectangles represent switches. Unfortunately, this conventional design suffers from a fundamental limitation: **Limited server-to-server capacity(i.e., oversubscription).**
 As we go up the hierarchy, we are confronted with steep technical and financial barriers in sustaining high bandwidth. Thus, as traffic moves up through the layers of switches and routers, the over-subscription ratio increases rapidly. Top-level switches can be oversubscribed by up to 240x(according to the VL2 paper), meaning that only one in 240 machines can send data across the top level to the other side at a time. 
 
 This paper provides more detailed explanation. 
@@ -24,11 +24,13 @@ However, recently developed CLOS networks have made it economical to build non-o
 The main consequence is that there is no distinction between local disk and remote disk, since the network bandwidth is roughly equal to the network bandwidth. (However, note that memory bandwidth is still two orders of magnitude than the disk and network bandwidth). Thus, we can have much simpler work schedulers and programming models. 
 Another consequence of such design is that high disk-to-disk bandwidth can also facilitate fast recovery from disk and machine failures. 
 
-## Hypothesis
-
-
 ## Solution Overview
 
+In FDS, data is logically stored in **blobs**, which is a byte sequence named with a 128-bit GUID. Reads from and writes to a blob are done in units called **tracts**. Empirically, they found that 8MB makes random and sequential access achieves nearly the same throughput. Every disk is managed by a process called a **tract server** that services read and write requests that arrive over the network from clients. FDS uses a **metadata server** to store the location of tracts.
+
+![](./architecture.png) 
+|:--:| 
+| *Credit: Alex Rasmussen* |
 
 ## Limitations and Possible Improvements
 
