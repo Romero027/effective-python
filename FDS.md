@@ -4,7 +4,7 @@ Xiangfeng Zhu(zxfeng)
 ## Problem and Motivation
 
 #### Oversubscription
-Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire thousands machines together. How would you do it? 
+Switch ports and cabling have both monetary cost and an operational cost in data centers. Imagine you have to wire thousands of machines together. How would you do it? 
 
 The following figure shows the dominant design pattern for data-center architecture today(2012). 
 
@@ -16,10 +16,10 @@ As shown in the above figure, the network is a tree-like hierarchy reaching from
 
 As we go up the hierarchy, we are confronted with steep technical and financial barriers in sustaining high bandwidth. Thus, as traffic moves up through the layers of switches and routers, the over-subscription ratio increases rapidly. Top-level switches can be oversubscribed by up to 240x(according to the VL2 paper), meaning that only one in 240 machines can send data across the top level to the other side at a time. 
 
-The [VL2 paper](http://web.eecs.umich.edu/~mosharaf/Readings/VL2.pdf) provides more detailed explanation. 
+The [VL2 paper](http://web.eecs.umich.edu/~mosharaf/Readings/VL2.pdf) provides a more detailed explanation. 
 
 #### Disk Locality
-The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e. respect data locality) because of the problem of oversubscription. Although there are some works(e.g., [Delay Scheduling](http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) attempted to solve this issue, location-awareness adds complexity to the scheduler. 
+The conventional wisdom in big-data processing systems(e.g., MapReduce) is to move computation to the data(i.e., respect data locality) because of the problem of oversubscription. Although there are some works(e.g., [Delay Scheduling](http://elmeleegy.com/khaled/papers/delay_scheduling.pdf)) attempted to solve this issue, location-awareness adds complexity to the scheduler. 
 
 
 #### CLOS network 
@@ -69,4 +69,4 @@ Each TLT entry also has a version number, canonically assigned by the metadata s
 Hadoop and GFS both have a centralized master that keeps all metadata in memory. Files and directories are represented on the master/NameNode by inodes, which record attributes like permissions, modification and access times, namespace and disk space quotas. Although such design provides one-hop access to the data and can recover from failure promptly, as the contents of the store grow, the master becomes a centralized scaling and performance bottleneck. 
 In contrast, the tract locator table's size is determined by the number of machines in a cluster, rather than the size of its content.
 
-(Figure 1 credits to Mosharaf Chowdhury and Figure 2,3 credit to Alex Rasmusse)
+(Figure 1 credits to Mosharaf Chowdhury and Figure 2,3 credit to Alex Rasmussen)
